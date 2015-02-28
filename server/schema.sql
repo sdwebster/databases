@@ -7,25 +7,23 @@ USE chat;
 
 
 CREATE TABLE messages (
-  /* Describe your table here.*/
-  name varchar(8)
-  -- messageID
-  -- username (or reference users table)
-  -- text
-  -- room (reference rooms table)
-  -- timestamp
+  ID int(11) NOT NULL auto_increment, PRIMARY KEY (ID),
+  /* maybe rewrite these two wth userID or roomID? */
+  username varchar(255),
+  messageText varchar(141),
+  room varchar(255),
+  posted DATE
 );
 
-/* Create other tables and define schemas for them here! */
+CREATE TABLE users (
+  userID int(11) NOT NULL auto_increment, PRIMARY KEY (userID),
+  username varchar(255)
+);
 
--- Create Table for Users
-  -- Columns:
-  --username (add a hash)
-  --userID
-
--- Create Table for Rooms
-  --roomname (add a hash)
-  --roomID
+CREATE TABLE rooms (
+  roomID int(11) NOT NULL auto_increment, PRIMARY KEY (roomID),
+  roomName varchar(255)
+);
 
 
 /*  Execute this file from the command line by typing:

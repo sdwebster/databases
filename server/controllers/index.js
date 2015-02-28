@@ -13,15 +13,13 @@ module.exports = {
   },
 
 
-  // a call to .../classes/users/... will come here
+  // a call to .../classes/users... will come here
   users: {
 
-    // ???a function which handles a get request for all users?
-    // or: when a message is posted,
-    // go see whether a user needs to be added?
-    //
+    // when client wants to see all chats for a user
+    // .../classes/users/marcus
     get: function (req, res) {},
-    // a function which handles adding a user to the database?
+    // adding a user to the database?
     post: function (req, res) {}
   }
 
