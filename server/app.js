@@ -1,7 +1,9 @@
+// this server is written with express
 var express = require('express');
+// why is DB folder neede here?
 var db = require('./db');
 
-// Middleware
+// Middleware - NPM LIBRARIES
 var morgan = require('morgan');
 var parser = require('body-parser');
 
@@ -21,7 +23,7 @@ app.use(parser.json());
 // Set up our routes
 app.use("/classes", router);
 
-// Serve the client files
+// Serve the client files (incl index.html, styles.css...)
 app.use(express.static(__dirname + "/../client"));
 
 // If we are being run directly, run the server.
