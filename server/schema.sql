@@ -5,25 +5,33 @@ CREATE DATABASE chat;
 
 USE chat;
 
-
 CREATE TABLE messages (
-  ID int(11) NOT NULL auto_increment, PRIMARY KEY (ID),
-  /* maybe rewrite these two wth userID or roomID? */
-  username varchar(255),
-  messageText varchar(141),
-  room varchar(255),
-  posted DATE
+  messageID INT(11) NOT NULL AUTO_INCREMENT,
+  userID INT(11),
+  -- roomID INT(11),
+  roomname varchar(255),
+  /* posted TIMESTAMP, */
+  messageText TEXT(255),
+  PRIMARY KEY  (messageID)
 );
 
 CREATE TABLE users (
-  userID int(11) NOT NULL auto_increment, PRIMARY KEY (userID),
-  username varchar(255)
+  userID INT(11) NOT NULL AUTO_INCREMENT,
+  username varchar(255),
+  PRIMARY KEY  (userID)
 );
 
 CREATE TABLE rooms (
-  roomID int(11) NOT NULL auto_increment, PRIMARY KEY (roomID),
-  roomName varchar(255)
+  roomID INT(11) NOT NULL AUTO_INCREMENT,
+  roomname varchar(255),
+  PRIMARY KEY  (roomID)
 );
+
+
+ALTER TABLE messages ADD CONSTRAINT messages_fk1
+  FOREIGN KEY (userID) REFERENCES users(userID);
+-- ALTER TABLE messages ADD CONSTRAINT messages_fk2
+--   FOREIGN KEY (roomID) REFERENCES rooms(roomID);
 
 
 /*  Execute this file from the command line by typing:
